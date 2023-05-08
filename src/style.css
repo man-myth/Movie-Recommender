@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  
 }
 
 a {
@@ -38,6 +39,7 @@ nav {
   position: fixed;
   width: 100vw;
   border-bottom: 1px solid;
+  z-index: 10000;
 
 }
 
@@ -46,6 +48,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .search {
@@ -80,7 +83,7 @@ nav li a {
   background-color: #f9f9f9;
   min-width: 10vw;
   box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 li a.active {
@@ -112,6 +115,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -150,12 +154,16 @@ button:focus-visible {
   width: 100vw;
   height: 100vh;
   display: flex;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
-
+  flex-direction: row;
+  gap: 2rem
 }
-
+#home>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .surprise-button {
   font-size: 2rem;
@@ -211,4 +219,88 @@ button:focus-visible {
   justify-content: center;
   padding: 1rem;
   gap: 1rem;
+}
+/* 
+.movie-container {
+  padding-top: 5vh;
+  max-width: 80vw;
+  max-height: 75vh;
+  display: grid;
+  grid-gap: 3rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.movie-container .movie-card {
+  width: 20vw;
+  height: 20vh;
+  display: flex;
+  border: 1px solid;
+  gap: 1rem;
+  border-radius: 35px;
+}
+
+.movie-container .left-card {
+  
+} */
+
+.movies {
+  /* overflow: auto; */
+ 
+  width: 80vw;
+  height: 80vh;
+  display: grid;
+  grid-gap: 2em 3em;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.movies figure {
+  margin: 0;
+}
+
+.movies img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+
+.movie__figure {
+  position: relative;
+  margin: 0 auto;
+}
+
+.movie__poster {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5em;
+}
+
+.movie__vote {
+  align-items: center;
+  background-color: #f68d01;
+  border-radius: 50%;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 3.25em;
+  width: 3.25em;
+  justify-content: center;
+  padding: 0.5em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 75%;
+  transform: translateX(50%);
+  
+}
+
+.movie__title {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0;
 }

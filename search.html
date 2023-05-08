@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=" UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendater</title>
+    <link rel="src/stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li><a href="../index.html/">Movie Recommender</a></li>
+                <li><a href="#discover">Discover</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-btn" href="genre">Genre <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#action">Action</a>
+                        <a href="#comedy">Comedy</a>
+                        <a href="#drama">Drama</a>
+                    </div>
+                </li>
+                <li><a href="release year">New Releases</a></li>
+                <li>
+
+                </li>
+            </ul>
+            <div class="search-container">
+                <input class="search" type="text" placeholder="Search for a movie" />
+                <a class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <div class="movie-container">
+
+            <!-- <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div> -->
+        </div>
+    </div>
+</body>
+<script type="module" src="./src/search.ts"></script>
+<script type="module" src="./src/movie.ts"></script>
+</html>
