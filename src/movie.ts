@@ -5,7 +5,7 @@ interface Movie {
     adult: false
     backdrop_path: string,
     genre_ids: [],
-    id: Number,
+    id: number,
     original_language: string,
     original_title: string,
     popularity: number,

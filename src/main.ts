@@ -7,11 +7,11 @@ const recommendContainer = document.querySelector('.recommend-container');
 
 //`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free`
 let discoverMovieList: Movie[] = [];
-fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=1`)
+fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
   .then(response => response.json())
   .then(data => {
     data.results.forEach((movie: Movie) => {
-      // console.log(movie.title)
+      console.log(movie.title)
       discoverMovieList.push(movie)
     })
   })
@@ -31,12 +31,12 @@ if (recommendContainer != null) {
       cardLeft.className = 'left-card';
       cardRight.className = 'right-card';
       movieCard.className = 'movie-card';
-      
+
       const posterPath = movie.poster_path;
       const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
       const movieImg = document.createElement('img');
       movieImg.src = posterUrl;
-      
+
       cardLeft.appendChild(movieImg);
 
       const movieTitle = document.createElement('h2');
@@ -57,3 +57,11 @@ if (recommendContainer != null) {
 
 }
 
+const movieItem = document.querySelectorAll(".movies li img");
+
+movieItem.forEach(item => {
+  item.addEventListener("click", () => {
+      console.log(item.innerHTML);
+      console.log("clicked");
+  })
+});
