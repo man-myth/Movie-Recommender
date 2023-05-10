@@ -1,3 +1,4 @@
+// Interface for Movie Item
 interface Movie {
     title: string;
     overview: string;

@@ -1,49 +1,48 @@
-import './style.css'
+import './style.css' //importing styles
 
 const apiKey = '279c763f2e6a8bda16449d8d97dd29e6';
+const recommendContainer:HTMLDivElement | null = document.querySelector('.recommend-container');
+let discoverMovieList: Movie[] = [];  //Create an empty array of type Movie
 
-const recommendContainer = document.querySelector('.recommend-container');
 
-
-//`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free`
-let discoverMovieList: Movie[] = [];
+//  Fetch API to make an HTTP request
 fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
   .then(response => response.json())
   .then(data => {
     data.results.forEach((movie: Movie) => {
-      console.log(movie.title)
       discoverMovieList.push(movie)
     })
   })
 
 
 if (recommendContainer != null) {
-  try {
+  try {     //error handling
     document.querySelector('#surprise-me')!.addEventListener('submit', (event) => {
       event.preventDefault();
-      let i = Math.floor(Math.random() * 20) + 1;
-      let movie = discoverMovieList[i];
+
+      let i:number = Math.floor(Math.random() * 20) + 1;
+      let movie:Movie = discoverMovieList[i];
       recommendContainer.innerHTML = '';
 
-      const movieCard = document.createElement('div');
-      const cardLeft = document.createElement('div');
-      const cardRight = document.createElement('div');
+      const movieCard:HTMLDivElement = document.createElement('div');
+      const cardLeft:HTMLDivElement = document.createElement('div');
+      const cardRight:HTMLDivElement = document.createElement('div');
       cardLeft.className = 'left-card';
       cardRight.className = 'right-card';
       movieCard.className = 'movie-card';
 
-      const posterPath = movie.poster_path;
-      const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
-      const movieImg = document.createElement('img');
+      const posterPath:string = movie.poster_path;
+      const posterUrl:string = `https://image.tmdb.org/t/p/w500${posterPath}`;
+      const movieImg:HTMLImageElement = document.createElement('img');
       movieImg.src = posterUrl;
 
       cardLeft.appendChild(movieImg);
 
-      const movieTitle = document.createElement('h2');
+      const movieTitle:HTMLHeadingElement = document.createElement('h2');
       movieTitle.textContent = movie.title;
       cardRight.appendChild(movieTitle);
 
-      const movieOverview = document.createElement('p');
+      const movieOverview:HTMLParagraphElement = document.createElement('p');
       movieOverview.textContent = movie.overview;
       cardRight.appendChild(movieOverview);
 
@@ -56,8 +55,7 @@ if (recommendContainer != null) {
   }
 
 }
-
-const movieItem = document.querySelectorAll(".movies li img");
+const movieItem:NodeListOf<Element> = document.querySelectorAll(".movies li img");
 
 movieItem.forEach(item => {
   item.addEventListener("click", () => {
